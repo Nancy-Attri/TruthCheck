@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}About - TruthCheck AI{% endblock %}
+
+{% block content %}
+<div class="container pb-5">
+    <header class="about-header shadow mb-5">
+        <h1 class="display-4 fw-bold">About TruthCheck</h1>
+        <p class="lead">Fighting Misinformation with Advanced Neural Networks & Logic</p>
+    </header>
+
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="p-4 bg-white rounded shadow-sm border-start border-primary border-5 mb-4">
+                <h3 class="fw-bold">Our Mission</h3>
+                <p class="text-secondary" style="font-size: 1.1rem;">
+                    In an era where digital misinformation spreads faster than reality, <b>TruthCheck</b> provides a transparent, data-driven shield against fake news. Our platform doesn't just look for matching keywords; it understands the <b> intent, logic, and context</b> of news to ensure you stay informed with verified facts.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h3 class="mb-4 fw-bold text-dark">The Technology Stack</h3>
+            <div class="row g-3">
+                <div class="col-sm-6">
+                    <div class="card tech-card p-3 shadow-sm h-100">
+                        <div class="stack-icon text-primary">🧠</div>
+                        <h6 class="fw-bold">Semantic Search Engine</h6>
+                        <p class="small text-muted">Utilizes <b> Sentence-Transformers (all-MiniLM-L6-v2)</b> to convert news headlines into numerical vectors for high-precision semantic matching.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card tech-card p-3 shadow-sm h-100">
+                        <div class="stack-icon text-danger">⚖️</div>
+                        <h6 class="fw-bold">NLI Logic Judge</h6>
+                        <p class="small text-muted">A <b>Cross-Encoder (NLI)</b> model acts as a logical judge, identifying contradictions between claims to prevent word-matching errors.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card tech-card p-3 shadow-sm h-100">
+                        <div class="stack-icon text-success">🌐</div>
+                        <h6 class="fw-bold">Real-time Sourcing</h6>
+                        <p class="small text-muted">Integrated with <b>SerpAPI</b> to perform instant, multi-source Google searches for the most up-to-date information.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card tech-card p-3 shadow-sm h-100">
+                        <div class="stack-icon text-warning">✍️</div>
+                        <h6 class="fw-bold">AI Reasoner (T5)</h6>
+                        <p class="small text-muted">Leverages the <b>T5 Transformer</b> to generate human-readable reasoning, explaining <b>why</b> a piece of news is flagged.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="app-box h-100 shadow-sm bg-white p-4 rounded border">
+                <h3 class="fw-bold mb-4">Verdict Guide</h3>
+                <div class="mb-4">
+                    <span class="badge bg-success verdict-badge mb-2">REAL</span>
+                    <p class="small text-muted">The claim shows high semantic similarity (Score > 0.7) and is logically supported by trusted news sources.</p>
+                </div>
+                <hr>
+                <div class="mb-4">
+                    <span class="badge bg-danger verdict-badge mb-2">FAKE</span>
+                    <p class="small text-muted">Either a logical conflict was detected (contradiction) or there is insufficient evidence from verified online sources.</p>
+                </div>
+                <div class="p-2 bg-light rounded mt-3">
+                    <p class="small mb-0 italic text-muted"><b>Note:</b> We penalize similarity scores if logical inconsistencies are detected to ensure high accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3 class="fw-bold mb-4 text-center">How It Works: The Verification Pipeline</h3>
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <ul class="list-group list-group-flush shadow-sm rounded border">
+                    <li class="list-group-item p-3">
+                        <i class="bi bi-1-circle-fill text-primary me-2"></i>
+                        <strong>Input Normalization:</strong> User headlines are cleaned and normalized to ensure consistent model processing.
+                    </li>
+                    <li class="list-group-item p-3">
+                        <i class="bi bi-2-circle-fill text-primary me-2"></i>
+                        <strong>Fact-Store Lookup:</strong> Claims are first checked against a curated database of verified historical and scientific facts.
+                    </li>
+                    <li class="list-group-item p-3">
+                        <i class="bi bi-3-circle-fill text-primary me-2"></i>
+                        <strong>Dynamic Web Search:</strong> If no local fact is found, our system triggers a real-time Google search via SerpAPI.
+                    </li>
+                    <li class="list-group-item p-3">
+                        <i class="bi bi-4-circle-fill text-primary me-2"></i>
+                        <strong>Logical Verdict:</strong> NLI and Similarity models work in tandem to provide a final confidence score and reasoning.
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="p-4 bg-light border rounded shadow-sm">
+                    <h5 class="fw-bold">Why Logic Matters?</h5>
+                    <p class="small text-muted">
+                        Standard detectors only look for similar words. Our <b> Natural Language Inference (NLI)</b>layer hunts for conflicts. This is how we identify when a headline claims a "Win" while the official source confirms a "Loss".
+                    </p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 p-5 text-white rounded shadow" style="background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <h2 class="fw-bold">Fast</h2>
+                <p>Verdicts generated in milliseconds using optimized transformer architectures.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="fw-bold">Logical</h2>
+                <p>Advanced contradiction detection to prevent word-matching errors.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="fw-bold">Explainable</h2>
+                <p>Transparent AI-generated reasoning for every single check performed.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 text-center">
+        <h3 class="fw-bold mb-3">Future Roadmap</h3>
+        <p class="text-muted mb-4">We are continuously working to expand the capabilities of TruthCheck AI.</p>
+        <div class="row g-3">
+            <div class="col-md-4"><div class="p-3 border rounded bg-white shadow-sm">Multi-language Support</div></div>
+            <div class="col-md-4"><div class="p-3 border rounded bg-white shadow-sm">Image & Deepfake Detection</div></div>
+            <div class="col-md-4"><div class="p-3 border rounded bg-white shadow-sm">Browser Extension Support</div></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

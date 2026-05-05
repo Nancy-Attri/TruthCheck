@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Detector Tool{% endblock %}
+
+{% block content %}
+  <div class="app-box">
+    <h2 class="text-center mb-4">Real-Time TruthCheck AI</h2>
+    <form method="POST">
+      <div class="mb-3">
+        <label for="news" class="form-label">Enter a news article or headline:</label>
+        <textarea class="form-control" placeholder="Enter the news headline here" id="news" name="news" rows="4" required>{{ user_input or '' }}</textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Analyze with AI Pipeline</button><br><br/>
+      <button type="button" class="btn btn-outline-secondary w-100" onclick="clearFormAndResults()">Clear Results</button>
+    </form>
+
+    {% if verdict %}
+<div class="verdict-box mt-4 p-4 shadow-sm result-card {% if 'REAL' in verdict %}border-real{% else %}border-fake{% endif %}">
+    <h4 class="fw-bold">AI Result</h4>
+    <p><strong>Verdict:</strong> 
+        <span class="badge {% if 'REAL' in verdict %}bg-success{% else %}bg-danger{% endif %}">{{ verdict }}</span>
+    </p>
+    <p><strong>Similarity Score:</strong> {{ "%.4f"|format(score) }}</p>
+    
+    <div class="mt-3 p-3 bg-white border rounded">
+        <h6 class="fw-bold text-secondary">AI Explanation:</h6>
+        <p class="mb-0 italic">{{ explanation }}</p>
+    </div>
+
+    {% if news_link and news_link != '#' %}
+        <hr>
+        <a href="{{ news_link }}" target="_blank" class="btn btn-primary w-100">View Source</a>
+    {% endif %}
+</div>
+{% endif %}
+
+<script>
+    function clearFormAndResults() {
+      document.getElementById("news").value = "";
+      window.location.href = "{{ url_for('index') }}";
+    }
+</script>
+{% endblock %}

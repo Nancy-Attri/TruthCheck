@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Detect Fake News{% endblock %}
+
+{% block content %}
+    
+    <section class="home-hero-section">
+        <div class="container home-content-wrapper">
+            <div class="row align-items-center">
+                <div class="col-lg-6 home-text-area">
+                    <h1 class="home-title">
+                        Detect Fake News with Confidence
+                        <!-- <span class="fake-news-highlight">Fake News</span> with Confidence -->
+                    </h1>
+                    <p class="home-subtitle">
+                        Our AI-powered platform helps you identify misinformation and verify the authenticity of news articles and information online.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="{{ url_for('index') }}" class="btn btn-primary btn-lg" style="background-color: dodgerblue; border-color:dodgerblue">
+                        <!-- "background-color: #4f46e5; border-color: #4f46e5;" -->
+                        Verify News Now</a>
+                        <a href="{{ url_for('about') }}" class="btn btn-outline-secondary btn-lg" style="border-color: #dee2e6; color: #343a40; background-color: #dee2e6;">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 d-flex justify-content-center justify-content-lg-end mt-5 mt-lg-0">
+                    <div class="home-image-box">
+                        <img src="https://www.keele.ac.uk/research/researchnews/2025/january/artificial-intelligence/fake-news-detector-960.jpg" alt="AI Powered Platform Graphic" style="max-width: 450px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="app-box-2">
+    <div class="container mt-5 mb-5">
+    <h4 class="text-center mb-5 home-title" style="color:dodgerblue;">How TruthCheck Works: The AI Verification Process</h4>
+    
+    <div class="row" >
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">1. Text Embedding (Vectorization)</h5>
+                    <p class="card-text">
+                        The core of our technology is the AI model, "all-MiniLM-L6-v2". 
+                        It converts the news headline you enter into a "numerical vector" (embedding). This vector mathematically represents the semantic meaning of the text, allowing for objective comparison.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title  fw-bold">2. Data Sourcing & Comparison</h5>
+                    <p class="card-text">
+                        The detector first checks for an extremely high match (similarity > 0.9) against a database of "pre-verified facts".
+                        If no direct match is found, it queries the web using the <b>SerpAPI</b> (Google Search API) to retrieve the top 5 most relevant articles from trusted online sources in real-time.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 mb-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">3. Verdict Generation</h5>
+                    <p class="card-text">
+    Beyond just similarity, our AI uses a <b>Cross-Encoder</b> to check for logical contradictions. 
+    Even if words match, if the meaning is opposite (like 'Won' vs 'Lost'), the <b>T5 Model</b> identifies the error and provides a detailed explanation.
+</p>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
+
+    <div class="app-box-2">
+    <h3 class="mt-5 mb-5 text-center home-title" style="color:dodgerblue">Technology Summary</h3>
+    <ul class="list-group list-group-flush mx-auto" style="max-width: 800px;">
+        <li class="list-group-item"><b>Core NLP Model:</b> all-MiniLM-L6-v2 Sentence Transformer</li>
+        <li class="list-group-item"><b>Real-time Data:</b> Google Search results via serpapi</li>
+        <li class="list-group-item"><b>Backend Framework:</b> Flask (Python)</li>
+        <li class="list-group-item"><b>Success Threshold:</b> Semantic similarity score of *0.7*</li>
+    </ul>
+    </div>
+
+
+
+{% endblock %}

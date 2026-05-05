@@ -1,0 +1,181 @@
+static/styles.css
+
+body {
+  background: linear-gradient(to bottom right, #f0f4f8, #e3ecf3);
+    /* background: linear-gradient(to bottom right, #727476, #e3ecf3); */
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-hero-section {
+    background: linear-gradient(to right, #f8f9fa, #e9eef6); 
+    padding: 100px 0; 
+    margin-bottom: 0;
+}
+
+.home-content-wrapper {
+    max-width: 1200px;
+}
+
+.home-text-area {
+    padding-right: 50px;
+}
+
+.home-title {
+    font-size: 3.5rem; 
+    font-weight: 700;
+    line-height: 1.1;
+    color: #343a40;
+}
+
+.home-title .fake-news-highlight {
+    color: #8b5cf6; 
+    background-image: linear-gradient(to right, #8b5cf6, #c084fc);
+    -webkit-text-fill-color: transparent;
+}
+
+.home-subtitle {
+    font-size: 1.15rem;
+    color: #6c757d;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.home-image-box {
+    /* Style for the bordered, floating image container */
+    padding: 15px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.home-image-box img {
+    border-radius: 10px;
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.navbar-brand .logo-text {
+    font-weight: 600;
+    color: #343a40; 
+}
+.navbar-brand .logo-ai {
+    color: #8b5cf6; 
+    font-weight: 700;
+}
+
+.app-box {
+  max-width: 700px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: 20px;
+}
+
+.app-box-2 {
+  max-width: 1200px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-left: auto; 
+  margin-right: auto; 
+  margin-top: 20px;
+}
+
+h2 {
+  font-weight: 600;
+  color: #343a40;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.verdict-box {
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  background-color: #f1f3f5;
+  border-left: 5px solid #007bff;
+}
+
+button {
+  font-weight: 500;
+}
+
+
+
+
+/* Purane code ke niche ye add karein */
+
+.result-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Dynamic Left Borders taaki visual signal mile */
+.border-real {
+    border-left: 6px solid #28a745 !important;
+}
+
+.border-fake {
+    border-left: 6px solid #dc3545 !important;
+}
+
+/* Explanation box styling */
+.bg-white.border.rounded {
+    border-color: #dee2e6 !important;
+}
+
+.result-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+.border-real {
+    border-left: 6px solid #28a745 !important;
+}
+.border-fake {
+    border-left: 6px solid #dc3545 !important;
+}
+
+
+/* About Page Specific Styles */
+.about-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 60px 0;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.tech-card {
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.tech-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.verdict-badge {
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.stack-icon {
+    font-size: 2rem;
+    color: #4f46e5;
+    margin-bottom: 15px;
+}
