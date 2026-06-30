@@ -9,9 +9,13 @@ import torch # Torch add kiya
 app = Flask(__name__)
 
 # === CONFIGURATION ===
-SERPAPI_KEY = "ebde36523cc9138dce4067eaf7a35f45f2c50ae61fb7074595182c96470aaa58"
+# SERPAPI_KEY = "ebde36523cc9138dce4067eaf7a35f45f2c50ae61fb7074595182c96470aaa58"
+# === CONFIGURATION ===
+# Hardcoded key replaced by environment variable and get read
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
 SEARCH_NUM_RESULTS = 5
 SIMILARITY_THRESHOLD = 0.7
+
 
 # === Load model and facts ===
 model = SentenceTransformer("all-MiniLM-L6-v2")
